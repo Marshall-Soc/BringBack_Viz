@@ -102,7 +102,7 @@ The next task is to find the average construal score across each row vector, dep
 This bit of code is ugly, and can probably be done much more efficiently with loops or the equivalent. That said, here's how we did it. First, set all of the NAs across the five construal vectors equal to zero so that the means are computed correctly. Then add up each row vector; this is the numerator for your mean. Finally (and this is the ugly part), you want to account for each possible permutation of cells for each number of terms. For example, with trigrams, the first term will probably be in the first column vector, but, if there is a dash (such as "non-state actor"), you will want to take the average of that row's entries in construal vectors 1, 3, and 4.
 
 ``` r
-for (i in 26:31) {
+for (i in 27:32) {
   data.rep[,i][which(is.na(data.rep[,i]))] <- 0
 }
 data.rep$construal <- (data.rep$concm1+data.rep$concm2+data.rep$concm3+data.rep$concm4+data.rep$concm5)
